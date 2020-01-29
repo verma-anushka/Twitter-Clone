@@ -19,7 +19,11 @@ const errorHandler = require("./handlers/error");
 
 // // ROUTES
 var authRoutes = require("./routes/auth");
+var messageRoutes = require("./routes/messages");
+
 app.use("/api/auth", authRoutes);
+app.use("/api/users/:id/messages", messageRoutes);
+
 
 // ERROR HANDLER (in case the routes are not reached)
 app.use((req, res, next) => { // next- allows to move to the next piece of middleware

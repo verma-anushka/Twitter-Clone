@@ -34,7 +34,12 @@ var userSchema = new mongoose.Schema({
     // User's profile image
     profileImgUrl: {
         type: String
-    }
+    },
+    // Reference to User's messages
+    messages: [{ // array of object IDs
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Message"
+    }]
 })
 
 // Encrpting the password - just before saving the document(user data) in mongoose using the model 

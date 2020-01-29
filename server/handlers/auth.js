@@ -1,4 +1,4 @@
-const db = require("../db");
+const db = require("../models");
 const jwt = require('jsonwebtoken');
 
 exports.signUp = async (req, res, next) => {
