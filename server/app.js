@@ -12,6 +12,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json()); // because building an api
 
+// HANDLERS
+const errorHandler = require("./handlers/error");
+
 // // MODELS
 // var User = require("./models/user");
 
@@ -26,6 +29,7 @@ app.use((req, res, next) => { // next- allows to move to the next piece of middl
     next(err);
 });
 
+app.use(errorHandler);
 
 // PORT SETTINGS
 app.set('port', process.env.PORT || 8080);
